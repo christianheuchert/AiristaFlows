@@ -1,0 +1,46 @@
+.nav-container {
+    align-items: center;
+    background-color: #1565c0;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3);
+    color: white;
+    display: flex;
+    flex-direction: row;
+    font-size: 1em;
+    height: 50px;
+    justify-content: space-between;
+    padding: 0 1em;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+
+  .nav-left {
+    align-items: center;
+    cursor: pointer;
+    display: flex;
+    margin-left: 0.5rem;
+  }
+  
+  .nav-right {
+    align-items: center;
+    display: flex;
+    margin-right: 0.5rem;
+  }
+
+  .home-link {
+    align-items: center;
+    display: flex;
+    text-decoration: none;
+  
+    .sofia {
+      height: 1.15em;
+      margin-left: 1em;
+    }
+  }
+
+  button {
+    justify-content: right;
+    margin: 2em;
+    width: 100%;
+  }

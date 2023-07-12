@@ -1,0 +1,12 @@
+<div class="shell">
+    <h2>Flows</h2>
+    <ul class="flows">
+        <li class="flow" *ngFor="let flow of jsonFlowsData">
+            <button [class.selected]="flow === selectedFlow"
+             (click)="onSelect(flow)">{{ flow.Name }}</button>
+        </li>
+    </ul>
+    <div *ngIf="selectedFlow">
+        <app-flow-view [flow]="selectedFlow"></app-flow-view>
+    </div>
+</div>
