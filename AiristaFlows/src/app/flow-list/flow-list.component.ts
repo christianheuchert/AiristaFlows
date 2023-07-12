@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { FlowService } from './flow.service.ts'
 
 @Component({
   selector: 'app-flow-list',
@@ -12,7 +13,11 @@ export class FlowListComponent implements OnInit {
   jsonFlowsData: any;
   selectedFlow: any;
 
-  constructor(private http: HttpClient, private router: Router) { }
+  constructor(
+    private http: HttpClient, 
+    private router: Router,
+    private flowService: FlowService,
+    ) { }
 
   ngOnInit(): void {
     try{
@@ -23,6 +28,7 @@ export class FlowListComponent implements OnInit {
       console.error(error);
       this.jsonFlowsData = undefined;
     }
+    let test = this.flowService.getFlows()
   }
 
   openFlow(flow: any){
