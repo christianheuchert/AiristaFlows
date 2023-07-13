@@ -16,29 +16,12 @@
     height: 2em;
     text-align: center;
   }
-  
   .flows button:hover {
     color: #2c3a41;
     background-color: #e6e6e6;
     left: .1em;
   }
-  
-  .flows button:active {
-    background-color: #1565c0;
-    color: #fafafa;
-  }
-  
   .flows button.selected {
-    background-color: #1565c0;
-    color: white;
-  }
-  
-  .flows button.selected:hover {
-    background-color: #1565c0;
-    color: white;
-  }
-  
-  .flows button.selected:active {
     background-color: #1565c0;
     color: white;
   }
