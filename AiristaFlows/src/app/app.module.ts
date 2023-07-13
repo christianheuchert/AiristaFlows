@@ -11,8 +11,9 @@ import { SelectFunctionComponent } from './select-function/select-function.compo
 import { FlowListComponent } from './flow-list/flow-list.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MqttComponent } from './configure-trigger/mqtt/mqtt.component';
-import { MatDialogModule } from '@angular/material/dialog';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatDialogModule } from '@angular/material/dialog';
+
 
 @NgModule({
   declarations: [
@@ -29,8 +30,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    BrowserAnimationsModule,
     MatDialogModule,
-    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
