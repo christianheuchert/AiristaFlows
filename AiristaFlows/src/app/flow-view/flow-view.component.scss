@@ -1,5 +1,30 @@
-.shell {
+.flow-block {
     display:inline-block;
-    margin-left:5em;
+    margin:1em;
     font-size: small;
+    border-radius: 25px;
+    border: 2px solid #1565c0;
+    padding: 10px;
+}
+
+.shell{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+}
+
+ul {
+    list-style-type: none;
+    list-style-position:inside;
+    margin:0;
+    padding:0; 
+  }
+
+.card {
+    border-radius: 25px;
+    border: 2px solid #e6e6e6;
+    padding: 5px;
+}
+
+p {
+    margin: .2em;
 }

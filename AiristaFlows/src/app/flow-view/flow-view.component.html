@@ -1,19 +1,33 @@
 <div class="shell">
-    <h3>Selected Flow Details: {{flowObject.Name}}</h3>
-    <p class="flow">{{flowObject.Description}}</p>
-    <p>Functions: </p>
-    <ul>
-        <li class="flow" *ngFor="let function of flowObject.functions">
-            <p>Name: {{function.Name}}</p>
-            <p>Description: {{function.Description}}</p>
-            <p>Type: {{function.Type}}</p>
-            <p>Input: {{function.Input}}</p>
-        </li>
-    </ul>
-    <p class="flow">Trigger: {{flowObject.trigger.Name}}</p>
-    <ul>
-        <li class="flow">Description: {{flowObject.trigger.Description}}</li>
-        <li class="flow">Output: {{flowObject.trigger.Output}}</li>
-        <li class="flow">Type: {{flowObject.trigger.Type}}</li>
-    </ul>
+    <div class="flow-block">
+        <h3>Selected Flow: {{flowObject.Name}}</h3>
+        <h5>{{flowObject.Description}}</h5>
+        
+        <p>Trigger: </p>
+            <div class="card" (click)="configureTrigger(flowObject.Trigger)">
+                <p>Name: {{flowObject.Trigger.Name}}</p>
+                <p>Description: {{flowObject.Trigger.Description}}</p>
+                <p>Type: {{flowObject.Trigger.Type}}</p>
+                <p>Input: {{flowObject.Trigger.Input}}</p>
+                <p>Output: {{flowObject.Trigger.Output}}</p>
+            </div>
+        <p>Functions: </p>
+        <ul>
+            <li *ngFor="let function of flowObject.Functions">
+                <div class="card" (click)="configureFunction(function)">
+                    <p>Name: {{function.Name}}</p>
+                    <p>Description: {{function.Description}}</p>
+                    <p>Type: {{function.Type}}</p>
+                    <p>Input: {{function.Input}}</p>
+                    <p>Output: {{function.Output}}</p>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="configure-function" *ngIf="selectedFunction">
+        <app-configure-function [flowFunction]="selectedFunction"></app-configure-function>
+    </div>
+    <div class="configure-trigger" *ngIf="selectedTrigger">
+        <app-configure-trigger [flowTrigger]="selectedTrigger"></app-configure-trigger>
+    </div>
 </div>

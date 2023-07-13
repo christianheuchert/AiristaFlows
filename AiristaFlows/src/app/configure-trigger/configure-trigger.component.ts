@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { FlowViewComponent } from '../flow-view/flow-view.component';
 
 @Component({
   selector: 'app-configure-trigger',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ConfigureTriggerComponent implements OnInit {
 
+  @Input() flowTrigger?: FlowViewComponent; // selected flow to open
+  selectedTrigger: any; 
+
   constructor() { }
 
   ngOnInit(): void {
+    this.selectedTrigger = this.flowTrigger
   }
 
 }
