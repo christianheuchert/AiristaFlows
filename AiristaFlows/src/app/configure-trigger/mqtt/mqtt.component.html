@@ -9,7 +9,7 @@
         <input id="Description" type="text" formControlName="Description" required>
 
         <label for="Input">Input: </label>
-        <input id="Input" type="text" formControlName="Input" required>
+        <input id="Input" type="text" formControlName="Input" (click)="configureInput()" [value]=inputValue required>
 
         <label for="Output">Output: </label>
         <input id="Output" type="text" formControlName="Output" required>

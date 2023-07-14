@@ -1,0 +1,26 @@
+
+<h1 mat-dialog-title>UPDATE INPUT/OUTPUT</h1>
+<div mat-dialog-content>
+    <form [formGroup]="inputForm">
+        <label for="Input">Input: </label>
+        <textarea id="Input" formControlName="Input" [required]="true"></textarea>
+
+        <label for="Keys">Keys: </label>
+        <input id="Keys" type="text" formControlName="Keys" required #keysInput>
+    
+        <button mat-flat-button color="primary"
+        id="add-button"
+        [disabled]="!inputForm.controls['Keys'].value"
+        (click)="addKeyToList(keysInput.value); keysInput.value = '';">Add
+        </button>
+      </form>
+
+      <ul>
+        <li *ngFor="let key of keys">{{ key }}</li>
+      </ul>
+
+</div>
+<div mat-dialog-actions>
+    <button mat-button mat-dialog-close>Cancel</button>
+    <button mat-button mat-dialog-close>Save</button>
+  </div>

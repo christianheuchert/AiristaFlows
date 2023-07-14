@@ -1,0 +1,29 @@
+form {
+    padding-top: 1rem;
+    font-size: medium;
+}
+
+label {
+    display: block;
+    margin: .1em 0;
+}
+
+button {
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+#add-button {
+    padding: 0.5rem 0.5rem;
+    margin-left: 0.5rem;
+}
+
+mat-dialog-content {
+    color: black;
+}
+
+textarea {
+    width: 14em;
+    height: 5em;
+    margin-bottom: 1rem;
+}

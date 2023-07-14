@@ -1,7 +1,8 @@
 import { Component, OnInit, Inject  } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
-
+import { MatDialog } from '@angular/material/dialog';
+import { TriggerInputComponent } from './trigger-input/trigger-input.component';
 
 @Component({
   selector: 'app-mqtt',
@@ -12,11 +13,14 @@ export class MqttComponent implements OnInit {
 
   triggerForm!: FormGroup;
   trigger: any;
+  selectedTrigger: any; 
+  inputValue:any;
 
   constructor(
     public dialogRef: MatDialogRef<MqttComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    public dialog: MatDialog,
   ) { }
 
   ngOnInit(): void {
@@ -48,6 +52,16 @@ export class MqttComponent implements OnInit {
 
   closeDialog(){
     this.dialogRef.close();
+  }
+
+  configureInput(){
+    this.dialog.open(TriggerInputComponent, {
+      data: { data: this.inputValue },
+      height: 'calc(100% - 60px)',
+      position: { right: '0px', top: '60px' },
+      maxWidth: '100vw',
+      width: '40%',
+    });
   }
 
   onSubmit(){
