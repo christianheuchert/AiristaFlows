@@ -1,6 +1,56 @@
 
 <h1 mat-dialog-title>MQTT Settings</h1>
 <div mat-dialog-content>
-    <p>Dialog content goes here.</p>
-    <button mat-button (click)="closeDialog()">Close</button>
+    <form [formGroup]="triggerForm" (ngSubmit)="onSubmit()">
+        <label for="Name">Name: </label>
+        <input id="Name" type="text" formControlName="Name" required>
+
+        <label for="Description">Description: </label>
+        <input id="Description" type="text" formControlName="Description" required>
+
+        <label for="Input">Input: </label>
+        <input id="Input" type="text" formControlName="Input" required>
+
+        <label for="Output">Output: </label>
+        <input id="Output" type="text" formControlName="Output" required>
+      
+        <div formGroupName="Settings">
+          <h2>Settings</h2>
+      
+          <label for="Name">Name: </label>
+          <input id="Name" type="text" formControlName="Name">
+      
+          <label for="Host">Host: </label>
+          <input id="Host" type="text" formControlName="Host">
+      
+          <label for="Protocol">Protocol: </label>
+          <input id="Protocol" type="text" formControlName="Protocol">
+      
+          <label for="Port">Port: </label>
+          <input id="Port"type="text" formControlName="Port">
+
+          <label for="Topic">Topic: </label>
+          <input id="Topic"type="text" formControlName="Topic">
+
+          <label for="Username">Username: </label>
+          <input id="Username"type="text" formControlName="Username">
+
+          <label for="Password">Password: </label>
+          <input id="Password"type="text" formControlName="Password">
+        </div>
+      
+        <button type="submit" mat-flat-button color="primary"
+        [disabled]="!triggerForm.valid">Submit
+        </button>
+      </form>
+      
+      <hr>
+            
+      <p>Form Status: {{ triggerForm.status }}</p>
+      
+      <button mat-flat-button color="primary"(click)="revertValues()">Revert Values</button>
 </div>
+<div mat-dialog-actions>
+    <button mat-button mat-dialog-close>Cancel</button>
+    <button mat-button mat-dialog-close>Save</button>
+  </div>

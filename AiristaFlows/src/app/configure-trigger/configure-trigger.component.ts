@@ -24,8 +24,8 @@ export class ConfigureTriggerComponent implements OnInit {
   configureTrigger(){
     this.dialog.open(MqttComponent, {
       data: { trigger: this.selectedTrigger },
-      height: 'calc(100% - 50px)',
-      position: { right: '0px', top: '50px' },
+      height: 'calc(100% - 60px)',
+      position: { right: '0px', top: '60px' },
       maxWidth: '100vw',
       width: '40%',
     });
