@@ -14,7 +14,8 @@ import { MqttComponent } from './configure-trigger/mqtt/mqtt.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule } from '@angular/material/dialog';
 import {MatButtonModule} from '@angular/material/button';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { TriggerInputComponent } from './configure-trigger/mqtt/trigger-input/trigger-input.component';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     ConfigureFunctionComponent,
     SelectFunctionComponent,
     FlowListComponent,
-    MqttComponent
+    MqttComponent,
+    TriggerInputComponent
   ],
   imports: [
     BrowserModule,
@@ -35,7 +37,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     BrowserAnimationsModule,
     MatDialogModule,
     MatButtonModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
