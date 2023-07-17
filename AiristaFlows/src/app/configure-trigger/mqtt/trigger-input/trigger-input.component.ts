@@ -1,7 +1,10 @@
-import { Component, OnInit, Inject, Input  } from '@angular/core';
-import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { FormBuilder, Validators, FormGroup } from '@angular/forms';
-import { MatDialog } from '@angular/material/dialog';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
+
+interface KeyCheckbox {
+  name: string;
+  checked: boolean;
+}
 
 @Component({
   selector: 'app-trigger-input',
@@ -9,38 +12,81 @@ import { MatDialog } from '@angular/material/dialog';
   styleUrls: ['./trigger-input.component.scss']
 })
 export class TriggerInputComponent implements OnInit {
-
-  @Input() inputValue: any;
   inputForm!: FormGroup;
-  keys:string[] = [];
+  selectedKeys: string[] = [];
+  objectKeys: KeyCheckbox[] = [];
+  jsonData: string = '';
+  keysChecked: { [key: string]: boolean } = {};
 
-  constructor(
-    public dialogRef: MatDialogRef<TriggerInputComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any,
-    private fb: FormBuilder,
-    public dialog: MatDialog,
-    ) { }
+  constructor(private fb: FormBuilder) { }
 
   ngOnInit(): void {
-    console.log('the data -', this.data)
-
     this.inputForm = this.fb.group({
-        Input: ['', [Validators.required]],
-        Keys: ['', [Validators.required]]
-      })
-    ;
+      Input: ['']
+    });
   }
 
-  addKeyToList(key: string) {
-    this.keys.push(key);
+  formatInput(): void {
+    const input = this.inputForm.get('Input')?.value;
+    if (input) {
+      try {
+        const parsedObject = JSON.parse(input);
+        this.jsonData = JSON.stringify(parsedObject, null, 2);
+        this.objectKeys = this.getObjectKeys(parsedObject);
+        this.keysChecked = this.initializeKeysChecked(this.objectKeys);
+        this.setBooleanKeys(parsedObject);
+      } catch (error) {
+        console.error('Invalid JSON input:', error);
+      }
+    }
+  }
+  
+  initializeKeysChecked(keys: KeyCheckbox[]): { [key: string]: boolean } {
+    const keysChecked: { [key: string]: boolean } = {};
+    for (let key of keys) {
+      keysChecked[key.name] = false;
+    }
+    return keysChecked;
+  }
+  
+
+  setBooleanKeys(obj: any, prefix: string = "") {
+    for (let key in obj) {
+      if (typeof obj[key] === "object" && obj[key] !== null) {
+        this.setBooleanKeys(obj[key], `${prefix}${key}.`);
+      } else {
+        this.keysChecked[`${prefix}${key}`] = false;
+      }
+    }
   }
 
-  closeDialog(){
-    this.dialogRef.close();
+  getObjectKeys(obj: any, prefix: string = ""): KeyCheckbox[] {
+    return Object.keys(obj).flatMap(key => {
+      const currentKey = prefix ? `${prefix}.${key}` : key;
+      if (typeof obj[key] === "object" && obj[key] !== null) {
+        const nestedKeys = this.getObjectKeys(obj[key], currentKey);
+        return [{ name: currentKey, checked: false }, ...nestedKeys];
+      } else {
+        return [{ name: currentKey, checked: false }];
+      }
+    });
+  }
+  
+
+  toggleKeyChecked(key: string): void {
+    this.keysChecked[key] = !this.keysChecked[key];
+  }  
+  
+
+  closeDialog(): void {
+    // Close dialog logic
   }
 
-  onSubmit(){
-    console.warn(this.inputForm.value);
+  onSubmit(): void {
+    // Form submission logic
   }
 
+  checkModel() {
+    console.log("checking the model: ", this.keysChecked);
+  }
 }
