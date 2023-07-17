@@ -2,12 +2,21 @@
     <div class="flow-list">
         <h2>Flows</h2>
         <ul class="flows">
-            <li class="flow" *ngFor="let flow of jsonFlowsData">
+            <li *ngFor="let flow of jsonFlowsData">
                 <button [class.selected]="flow === selectedFlow"
                 (click)="onSelect(flow)">{{ flow.Name }}</button>
             </li>
+            <li>
+                <button class="createFlow" 
+                matTooltip="Click To Create Flow"
+                matTooltipPosition="right"
+                (click)="createFlow()"
+                >+
+                </button>
+            </li>
         </ul>
     </div>
+
     <div class="flow-view" *ngIf="selectedFlow">
         <app-flow-view [flow]="selectedFlow"></app-flow-view>
     </div>

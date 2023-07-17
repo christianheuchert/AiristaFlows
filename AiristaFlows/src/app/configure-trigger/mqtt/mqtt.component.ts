@@ -12,6 +12,8 @@ export class MqttComponent implements OnInit {
 
   triggerForm!: FormGroup;
   trigger: any;
+  variableOptions= ["String", "Object", "Number"];
+  protocol=["ws", "mqtt"]
 
   constructor(
     public dialogRef: MatDialogRef<MqttComponent>,
@@ -28,7 +30,6 @@ export class MqttComponent implements OnInit {
         Output: [this.trigger.Output],
         Settings: this.fb.group({
           Host: [this.trigger.Settings.Host],
-          Name: [this.trigger.Settings.Name],
           Username: [this.trigger.Settings.Username],
           Password: [this.trigger.Settings.Password],
           Port: [this.trigger.Settings.Port],
@@ -36,8 +37,7 @@ export class MqttComponent implements OnInit {
           Topic: [this.trigger.Settings.Topic],
         })
         
-      })
-    ;
+      });
   }
 
   revertValues() {

@@ -26,7 +26,7 @@
         <button (click)="createExecutable()">
             Create Executable
         </button>
-        <p *ngIf="executableCreated">Path Generated Here ==> <br>{{executableCreated}}</p>
+        <p *ngIf="executableCreated">Path For {{flowObject.Name}}.exe ==> <br>{{executableCreated}}</p>
         <mat-spinner [diameter]="50" *ngIf="executableLoading"></mat-spinner>
     </div>
     <div class="configure-function" *ngIf="selectedFunction">

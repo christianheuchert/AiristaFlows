@@ -9,31 +9,32 @@
     position: relative;
     background-color: white;
     margin: 1em;
-    padding: 1;
+    padding: .5em;
     border-radius: 6px;
     border: 2px solid #1565c0;
     display: flex;
-    height: 2em;
+    //height: 2em;
     text-align: center;
-  }
-  .flows button:hover {
-    color: #2c3a41;
-    background-color: #e6e6e6;
-    left: .1em;
-  }
-  .flows button.selected {
-    background-color: #1565c0;
-    color: white;
-  }
+}
+.flows button:hover {
+  color: #2c3a41;
+  background-color: #e6e6e6;
+  left: .1em;
+}
+.flows button.selected {
+  background-color: #1565c0;
+  color: white;
+}
 
-  ul {
-    list-style-type: none;
-  }
+ul {
+  list-style-type: none;
+}
 
-  .flow-list {
-    max-width: 20em;
-  }
+.flow-list {
+  max-width: 20em;
+}
 
-  .flow-view {
-    
-  }
+.createFlow.mat-tooltip {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 11px; /* Replace with the desired font size */
+}

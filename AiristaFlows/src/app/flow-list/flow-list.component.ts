@@ -26,10 +26,6 @@ export class FlowListComponent implements OnInit {
     });
   }
 
-  // openFlow(flow: any){
-  //   this.router.navigate(['flow-view'], flow);
-  // }
-
   onSelect(flow: any){
     console.log(flow)
     if (this.selectedFlow){
@@ -37,6 +33,10 @@ export class FlowListComponent implements OnInit {
     }else{
       this.selectedFlow = flow
     }
+  }
+
+  createFlow(){
+    this.router.navigate(['create-flow'])
   }
 
 }
