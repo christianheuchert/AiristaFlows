@@ -14,4 +14,11 @@ export class FlowService {
     return this.http.get<any>("http://localhost:8080/flows", {} );
   }
 
+  createExecutableFlow(name: string){
+    return this.http.get<any>(
+      `http://localhost:8080/flowExec` +
+      `/${name}`
+    , {} );
+  }
+
 }
