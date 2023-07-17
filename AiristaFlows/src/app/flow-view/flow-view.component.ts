@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { FlowListComponent } from '../flow-list/flow-list.component';
-
+import { FlowService } from '../flow.service'
 
 @Component({
   selector: 'app-flow-view',
@@ -14,8 +14,12 @@ export class FlowViewComponent implements OnInit {
 
   selectedFunction: any;
   selectedTrigger: any;
+  executableCreated = "";
+  executableLoading = false;
 
-  constructor() { }
+  constructor(
+    private flowService: FlowService,
+  ) { }
 
   ngOnInit(): void {
     this.flowObject=this.flow
@@ -40,6 +44,18 @@ export class FlowViewComponent implements OnInit {
     }else{
       this.selectedTrigger = flowTrigger
     }
+  }
+
+  createExecutable() {
+    this.executableLoading=true;
+    this.flowService.createExecutableFlow(this.flowObject.Name).subscribe((data: any) => {
+      if (data){ 
+        this.executableCreated = data
+      }else{
+        this.executableCreated = "Error Generating Executable"
+      }
+      this.executableLoading = false
+    });
   }
 
 }

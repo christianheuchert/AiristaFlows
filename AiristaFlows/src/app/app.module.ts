@@ -16,6 +16,10 @@ import { MatDialogModule } from '@angular/material/dialog';
 import {MatButtonModule} from '@angular/material/button';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TriggerInputComponent } from './configure-trigger/mqtt/trigger-input/trigger-input.component';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import {MatTooltipModule} from '@angular/material/tooltip';
+import { CreateFlowComponent } from './create-flow/create-flow.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 
 @NgModule({
@@ -28,7 +32,9 @@ import { TriggerInputComponent } from './configure-trigger/mqtt/trigger-input/tr
     SelectFunctionComponent,
     FlowListComponent,
     MqttComponent,
-    TriggerInputComponent
+    TriggerInputComponent,
+    CreateFlowComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +44,9 @@ import { TriggerInputComponent } from './configure-trigger/mqtt/trigger-input/tr
     MatDialogModule,
     MatButtonModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    MatProgressSpinnerModule,
+    MatTooltipModule
   ],
   providers: [],
   bootstrap: [AppComponent]

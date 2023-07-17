@@ -1,0 +1,20 @@
+<div class="shell">
+    <h2>Flow Creation</h2>
+    <form [formGroup]="createFlowForm" (ngSubmit)="onSubmit()">
+        <h4>Select Trigger Type: </h4>
+        <select id="Triggers" formControlName="Triggers">
+            <option *ngFor="let option of triggerOptions" [value]="option">
+            {{option}}
+            </option>
+        </select>
+        <h4>Select Function Type: </h4>
+        <select id="Functions" formControlName="Functions">
+            <option *ngFor="let option of functionOptions" [value]="option">
+            {{option}}
+            </option>
+        </select>
+        <button type="submit" mat-flat-button color="primary"
+        [disabled]="!createFlowForm.valid">Submit
+        </button>
+    </form>
+</div>

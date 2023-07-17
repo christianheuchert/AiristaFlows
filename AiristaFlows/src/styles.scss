@@ -1,5 +1,49 @@
-@import '@angular/material/prebuilt-themes/indigo-pink.css';
+@import "src/theme/variables.scss";
 
+.wrapper {
+  height: 100%;
+  overflow: auto;
+  width: 100%;
+}
+
+.wrapperLoggedIn {
+  height: calc(100% - 50px);
+  overflow: auto;
+  width: 100%;
+}
+
+html,body {
+  height: 100%;
+}
+body {
+  margin: 0;
+}
+
+.error {
+  background-color: $error;
+  color: white;
+  font-weight: 500;
+}
+
+.info {
+  background-color: $primary-light;
+  color: white;
+  font-weight: 500;
+}
+
+.success {
+  background-color: $light-green;
+  color: white;
+  font-weight: 500;
+}
+
+.warn {
+  background-color: $warn;
+  color: white;
+  font-weight: 500;
+}
+
+// All code below is for controlling mat-dialog placement
 .cdk-overlay-container {
     position: fixed;
     z-index: 1000;

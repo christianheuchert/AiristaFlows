@@ -1,6 +1,6 @@
 <div class="nav-container" >
   <div class="nav-left">
-    <div class="home-link">
+    <div class="home-link" routerLink="/flow-list">
       <img src="assets/images/header-logo.svg" />
       <img class="sofia" src="assets/images/SofiaLogo.svg" />
     </div>
@@ -10,10 +10,9 @@
   </div>
   <div class="nav-right">
       <button mat-flat-button>
-        Create
+        Create Flow
       </button>
   </div>
 </div>
 
-<app-flow-list></app-flow-list>
-
+<router-outlet></router-outlet>

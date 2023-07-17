@@ -9,28 +9,38 @@
         <input id="Description" type="text" formControlName="Description" required>
 
         <label for="Input">Input: </label>
-        <input id="Input" type="text" formControlName="Input" (click)="configureInput()" [value]=inputValue required>
+        <select id="Input" formControlName="Input">
+          <option *ngFor="let option of variableOptions" [value]="option">
+            {{option}}
+          </option>
+        </select>
+        <button *ngIf="trigger.Input === 'Object'">Configure</button>
 
         <label for="Output">Output: </label>
-        <input id="Output" type="text" formControlName="Output" required>
+        <select id="Output" formControlName="Output">
+          <option *ngFor="let option of variableOptions" [value]="option">
+            {{option}}
+          </option>
+        </select>
       
         <div formGroupName="Settings">
           <h2>Settings</h2>
       
-          <label for="Name">Name: </label>
-          <input id="Name" type="text" formControlName="Name">
-      
           <label for="Host">Host: </label>
           <input id="Host" type="text" formControlName="Host">
-      
-          <label for="Protocol">Protocol: </label>
-          <input id="Protocol" type="text" formControlName="Protocol">
       
           <label for="Port">Port: </label>
           <input id="Port"type="text" formControlName="Port">
 
           <label for="Topic">Topic: </label>
           <input id="Topic"type="text" formControlName="Topic">
+
+          <label for="Protocol">Protocol: </label>
+          <select id="Protocol" formControlName="Protocol">
+            <option *ngFor="let option of protocol" [value]="option">
+              {{option}}
+            </option>
+          </select>
 
           <label for="Username">Username: </label>
           <input id="Username"type="text" formControlName="Username">
