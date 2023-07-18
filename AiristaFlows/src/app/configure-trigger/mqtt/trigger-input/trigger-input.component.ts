@@ -39,6 +39,7 @@ export class TriggerInputComponent implements OnInit {
         console.error('Invalid JSON input:', error);
       }
     }
+    console.log("KEYS ", this.objectKeys)
   }
   
   initializeKeysChecked(keys: KeyCheckbox[]): { [key: string]: boolean } {
@@ -74,6 +75,14 @@ export class TriggerInputComponent implements OnInit {
   
 
   toggleKeyChecked(key: string): void {
+    if (!key.includes('.')) {
+      const parentKey = key;
+      const children = this.objectKeys.filter((obj: any) => obj.name.startsWith(parentKey + '.') && obj.name !== key);
+
+      children.forEach((child: any) => {
+        this.keysChecked[child.name] = !this.keysChecked[key];
+      });
+    }
     this.keysChecked[key] = !this.keysChecked[key];
   }  
   

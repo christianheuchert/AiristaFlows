@@ -1,7 +1,7 @@
 
 <h1 mat-dialog-title>MQTT Settings</h1>
 <div mat-dialog-content>
-    <form [formGroup]="triggerForm" (ngSubmit)="onSubmit()">
+    <form [formGroup]="triggerForm">
         <label for="Name">Name: </label>
         <input id="Name" type="text" formControlName="Name" required>
 
@@ -14,7 +14,8 @@
             {{option}}
           </option>
         </select>
-        <button *ngIf="trigger.Input === 'Object'">Configure</button>
+        <button *ngIf="triggerForm.value.Input === 'Object'"
+        (click)="configureInput()">Configure</button>
 
         <label for="Output">Output: </label>
         <select id="Output" formControlName="Output">
@@ -62,5 +63,5 @@
 </div>
 <div mat-dialog-actions>
     <button mat-button mat-dialog-close>Cancel</button>
-    <button mat-button mat-dialog-close>Save</button>
+    <button mat-button mat-dialog-close (click)="onSubmit()">Save</button>
   </div>
