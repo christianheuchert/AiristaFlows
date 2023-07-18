@@ -25,4 +25,12 @@ export class FlowService {
     , {} );
   }
 
+  updateFlow(flow: any) {
+    return this.http.post<any>(
+      `http://localhost:8080/flowExec`,
+      flow
+    );
+  }
+
+
 }
