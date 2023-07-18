@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject  } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
@@ -30,6 +30,7 @@ export class MqttComponent implements OnInit {
     this.triggerForm = this.fb.group({
         Name: [this.trigger.Name, [Validators.required]],
         Description: [this.trigger.Description],
+        Type: [this.trigger.Type],
         Input: [this.trigger.Input],
         Output: [this.trigger.Output],
         Settings: this.fb.group({
@@ -65,7 +66,9 @@ export class MqttComponent implements OnInit {
   }
 
   onSubmit(){
-    console.warn(this.triggerForm.value);
+    //console.warn(this.triggerForm.value);
+    let trigger = this.triggerForm.value
+    this.dialogRef.close(trigger)
   }
 
 }

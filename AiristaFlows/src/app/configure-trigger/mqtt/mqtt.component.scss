@@ -1,18 +1,47 @@
+.shell{
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+  flex-direction: column;
+  padding: 1em;
+}
+
 form {
-    padding-top: 1rem;
-    font-size: medium;
-  }
-  
-  label {
-    display: block;
-    margin: .1em 0;
-  }
+  padding-top: 1rem;
+  font-size: medium;
+}
 
-  button {
-    margin-top: 1em;
-    margin-bottom: 1em;
-  }
+label {
+  display: block;
+  margin: .1em 0;
+}
 
-  mat-dialog-content{
-    color: black;
-  }
+button {
+  flex: 1;
+  cursor: pointer;
+  position: relative;
+  background-color: white;
+  margin: 1em;
+  padding: .5em;
+  border-radius: 6px;
+  border: 2px solid #1565c0;
+  display: flex;
+  //height: 2em;
+  text-align: center;
+}
+button:hover {
+color: #2c3a41;
+background-color: #e6e6e6;
+left: .1em;
+}
+button.selected {
+background-color: #1565c0;
+color: white;
+}
+
+mat-dialog-content{
+  color: black;
+}
+
+.dialog-actions {
+  height: 50px; /* Adjust the height value as per your requirement */
+}

@@ -1,23 +1,13 @@
 <div class="shell">
-    <div class="flow-list">
-        <h2>Flows</h2>
-        <ul class="flows">
-            <li *ngFor="let flow of jsonFlowsData">
-                <button [class.selected]="flow === selectedFlow"
-                (click)="onSelect(flow)">{{ flow.Name }}</button>
-            </li>
-            <li>
-                <button class="createFlow" 
-                matTooltip="Click To Create Flow"
-                matTooltipPosition="right"
-                (click)="createFlow()"
-                >+
-                </button>
-            </li>
-        </ul>
+    <h1 class="title">Flows</h1>
+    <div class="card" *ngFor="let flow of jsonFlowsData">
+        <div (click)="onSelect(flow)">{{ flow.Name }}</div>
+    </div>
+    <div class="card" 
+    matTooltip="Click To Create Flow"
+    matTooltipPosition="right"
+    (click)="createFlow()">
+    ➕
     </div>
 
-    <div class="flow-view" *ngIf="selectedFlow">
-        <app-flow-view [flow]="selectedFlow"></app-flow-view>
-    </div>
 </div>

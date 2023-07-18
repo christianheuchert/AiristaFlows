@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { FlowListComponent } from '../flow-list/flow-list.component';
 import { FlowService } from '../flow.service'
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-flow-view',
@@ -9,8 +10,8 @@ import { FlowService } from '../flow.service'
 })
 export class FlowViewComponent implements OnInit {
 
-  @Input() flow?: FlowListComponent; // selected flow to open
   flowObject: any;
+  jsonFlowsData: any;
 
   selectedFunction: any;
   selectedTrigger: any;
@@ -19,15 +20,16 @@ export class FlowViewComponent implements OnInit {
 
   constructor(
     private flowService: FlowService,
+    private route: ActivatedRoute
   ) { }
 
   ngOnInit(): void {
-    this.flowObject=this.flow
+    this.flowObject=history.state.flow
     console.log(this.flowObject)
   }
 
   configureFunction(flowFunction: any){
-    console.log(flowFunction)
+    //console.log(flowFunction)
     if (this.selectedFunction || this.selectedTrigger){
       this.selectedFunction = undefined
       this.selectedTrigger = undefined
@@ -37,7 +39,7 @@ export class FlowViewComponent implements OnInit {
   }
 
   configureTrigger(flowTrigger: any){
-    console.log(flowTrigger)
+    //console.log(flowTrigger)
     if (this.selectedTrigger || this.selectedFunction){
       this.selectedTrigger = undefined
       this.selectedFunction = undefined
@@ -48,7 +50,7 @@ export class FlowViewComponent implements OnInit {
 
   createExecutable() {
     this.executableLoading=true;
-    this.flowService.createExecutableFlow(this.flowObject.Name).subscribe((data: any) => {
+    this.flowService.createExecutableFlow(this.flowObject.Id).subscribe((data: any) => {
       if (data){ 
         this.executableCreated = data
       }else{
@@ -56,6 +58,11 @@ export class FlowViewComponent implements OnInit {
       }
       this.executableLoading = false
     });
+  }
+
+  handleUpdatedTrigger(updatedTrigger: any){
+    //console.log("updated trigger", updatedTrigger)
+    this.flowObject.Trigger = updatedTrigger
   }
 
 }

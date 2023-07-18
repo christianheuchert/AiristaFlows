@@ -1,12 +1,14 @@
-
-<h1 mat-dialog-title>MQTT Settings</h1>
-<div mat-dialog-content>
+<div class="shell">
+  <h1 mat-dialog-title>MQTT Settings</h1>
     <form [formGroup]="triggerForm">
         <label for="Name">Name: </label>
         <input id="Name" type="text" formControlName="Name" required>
 
         <label for="Description">Description: </label>
         <input id="Description" type="text" formControlName="Description" required>
+
+        <label for="Type">Type: </label>
+        <input id="Type" type="text" formControlName="Type" required readonly>
 
         <label for="Input">Input: </label>
         <select id="Input" formControlName="Input">
@@ -50,18 +52,12 @@
           <input id="Password"type="text" formControlName="Password">
         </div>
       
-        <button type="submit" mat-flat-button color="primary"
-        [disabled]="!triggerForm.valid">Submit
-        </button>
       </form>
-      
+                  
+      <button color="primary"(click)="revertValues()">Revert Values</button>
       <hr>
-            
-      <p>Form Status: {{ triggerForm.status }}</p>
-      
-      <button mat-flat-button color="primary"(click)="revertValues()">Revert Values</button>
+      <div mat-dialog-actions class="dialog-actions">
+        <button mat-button mat-dialog-close>Cancel</button>
+        <button mat-button mat-dialog-close (click)="onSubmit()">Save</button>
+      </div>
 </div>
-<div mat-dialog-actions>
-    <button mat-button mat-dialog-close>Cancel</button>
-    <button mat-button mat-dialog-close (click)="onSubmit()">Save</button>
-  </div>

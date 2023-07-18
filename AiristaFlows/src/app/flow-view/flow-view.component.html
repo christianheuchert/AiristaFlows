@@ -33,6 +33,8 @@
         <app-configure-function [flowFunction]="selectedFunction"></app-configure-function>
     </div>
     <div class="configure-trigger" *ngIf="selectedTrigger">
-        <app-configure-trigger [flowTrigger]="selectedTrigger"></app-configure-trigger>
+        <app-configure-trigger [flowTrigger]="selectedTrigger" 
+            (saveTrigger)="handleUpdatedTrigger($event)">
+        </app-configure-trigger>
     </div>
 </div>

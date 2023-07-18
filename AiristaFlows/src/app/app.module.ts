@@ -13,7 +13,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { MqttComponent } from './configure-trigger/mqtt/mqtt.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule } from '@angular/material/dialog';
-import {MatButtonModule} from '@angular/material/button';
+import { MatButtonModule } from '@angular/material/button';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TriggerInputComponent } from './configure-trigger/mqtt/trigger-input/trigger-input.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';

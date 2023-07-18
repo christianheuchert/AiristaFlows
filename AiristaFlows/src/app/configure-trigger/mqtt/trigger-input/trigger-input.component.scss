@@ -8,6 +8,14 @@ label {
     margin: .1em 0;
 }
 
+.shell{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    flex-direction: column;
+    padding: 1em;
+  }
+  
+
 .shell button {
     flex: 1;
     cursor: pointer;
