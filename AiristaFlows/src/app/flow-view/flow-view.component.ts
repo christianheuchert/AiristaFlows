@@ -1,7 +1,9 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FlowListComponent } from '../flow-list/flow-list.component';
 import { FlowService } from '../flow.service'
 import { ActivatedRoute } from '@angular/router';
+import { MqttComponent } from '../configure-trigger/mqtt/mqtt.component';
+import { MatDialog, MatDialogRef  } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-flow-view',
@@ -10,18 +12,24 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class FlowViewComponent implements OnInit {
 
+  // Trigger settings to send back back to Flow-view
+  @Output() saveTrigger: EventEmitter<any> = new EventEmitter<any>();
+
+  @Input() flowTrigger?: FlowViewComponent; // selected flow to open
+  selectedTrigger: any; 
+
   flowObject: any;
   jsonFlowsData: any;
 
   selectedFunction: any;
-  selectedTrigger: any;
   executableCreated = "";
   executableLoading = false;
 
   constructor(
     private flowService: FlowService,
-    private route: ActivatedRoute
-  ) { }
+    private route: ActivatedRoute,
+    public dialog: MatDialog
+    ) { }
 
   ngOnInit(): void {
     this.flowObject=history.state.flow
@@ -38,14 +46,22 @@ export class FlowViewComponent implements OnInit {
     }
   }
 
-  configureTrigger(flowTrigger: any){
-    //console.log(flowTrigger)
-    if (this.selectedTrigger || this.selectedFunction){
-      this.selectedTrigger = undefined
-      this.selectedFunction = undefined
-    }else{
-      this.selectedTrigger = flowTrigger
-    }
+  configureTrigger(flowObject: any){
+    const dialogRef: MatDialogRef<MqttComponent> = this.dialog.open(MqttComponent, {
+      data: { trigger: flowObject },
+      height: 'calc(100% - 60px)',
+      position: { right: '0px', top: '60px' },
+      maxWidth: '100vw',
+      width: '40%',
+    });
+    dialogRef.afterClosed().subscribe((result: any) => {
+      // Handle the data received from the dialog
+      if (result) {
+        // Perform actions with the result data
+        this.selectedTrigger = result
+        this.saveTrigger.emit(this.selectedTrigger)
+      }
+    });
   }
 
   createExecutable() {
