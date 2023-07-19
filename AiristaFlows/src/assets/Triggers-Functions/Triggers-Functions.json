@@ -1,4 +1,0 @@
-{
-    "Triggers": ["mqtt"],
-    "Functions": ["consoleLog", "restCall"]
-}

@@ -1,19 +1,34 @@
 <div class="shell">
     <h2>Flow Creation</h2>
-    <form [formGroup]="createFlowForm" (ngSubmit)="onSubmit()">
-        <h4>Select Trigger Type: </h4>
-        <select id="Triggers" formControlName="Triggers">
+    <form [formGroup]="createFlowForm">
+        <label for="Name">Name: </label>
+        <input id="Name" type="text" formControlName="Name">
+        <label for="Description">Description: </label>
+        <input id="Description" type="text" formControlName="Description">
+
+        <h4>Trigger Type: </h4>
+        <select id="Trigger" formControlName="Trigger">
+            <option selected value="" disabled>Select Trigger Type</option>
             <option *ngFor="let option of triggerOptions" [value]="option">
             {{option}}
             </option>
         </select>
-        <h4>Select Function Type: </h4>
-        <select id="Functions" formControlName="Functions">
+        <button (click)="addTrigger()">Add Trigger</button>
+        <p *ngFor="let trigger of triggersToAdd">{{trigger}}</p>
+
+
+        <h4>Function Type: </h4>
+        <select id="Function" formControlName="Function">
+            <option selected value="" disabled>Select Function Type</option>
             <option *ngFor="let option of functionOptions" [value]="option">
             {{option}}
             </option>
         </select>
-        <button type="submit" mat-flat-button color="primary"
+        <button (click)="addFunction()">Add Function</button>
+        <p *ngFor="let function of functionsToAdd">{{function}}</p>
+
+
+        <button class="submit" (click)="onSubmit()"
         [disabled]="!createFlowForm.valid">Submit
         </button>
     </form>

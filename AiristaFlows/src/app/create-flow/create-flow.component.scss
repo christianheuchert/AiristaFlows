@@ -4,3 +4,34 @@
     flex-direction: column;
     margin-left: 2em;
 }
+
+label {
+    display: block;
+    margin: .1em 0;
+}
+
+.submit {
+    display: block;
+}
+
+button {
+    flex: 1;
+    cursor: pointer;
+    position: relative;
+    background-color: #1565c0;
+    margin: 1em;
+    padding: 1;
+    border-radius: 6px;
+    border: 2px solid #1565c0;
+    text-align: center;
+    color: white;
+}
+button:hover {
+    color: #2c3a41;
+    background-color: #e6e6e6;
+    left: .1em;
+  }
+button.selected {
+    background-color: #1565c0;
+    color: white;
+}
