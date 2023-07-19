@@ -1,8 +1,9 @@
 @import '~@angular/material/prebuilt-themes/indigo-pink.css'; // need this for spinner to show up
+
 .flow-block {
-    display:flex;
+    display: flex;
     flex-direction: column;
-    margin:1em;
+    margin: 1em;
     font-size: small;
     border-radius: 25px;
     border: 2px solid #1565c0;
@@ -10,17 +11,19 @@
     max-width: 300px;
 }
 
-.shell{
+.shell {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 ul {
     list-style-type: none;
-    list-style-position:inside;
-    margin:0;
-    padding:0; 
-  }
+    list-style-position: inside;
+    margin: 0;
+    padding: 0;
+}
 
 .card {
     border-radius: 25px;
@@ -45,12 +48,52 @@ button {
     text-align: center;
     color: white;
 }
+
 button:hover {
     color: #2c3a41;
     background-color: #e6e6e6;
     left: .1em;
-  }
+}
+
 button.selected {
     background-color: #1565c0;
     color: white;
 }
+
+.panel {
+    z-index: 1;
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #1565c0;
+    border: 1px solid #787878;
+    width: 75%;
+    margin: 1em;
+    height: 2.5rem;
+    border-radius: 1%;
+    padding: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Add this line for the shadow effect */
+
+  }
+
+  .flow-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .arrow-down {
+    // display: flex;
+    // flex-direction: column;
+    // align-items: center;
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 10px solid rgb(25, 123, 129);
+    margin:1rem;
+  }
+
