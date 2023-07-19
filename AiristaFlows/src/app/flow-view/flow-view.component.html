@@ -1,9 +1,13 @@
 <div class="shell">
-    <div class="flow-block">
-        <h3>Selected Flow: {{flowObject.Name}}</h3>
-        <h5>{{flowObject.Description}}</h5>
-        
-        <p>Trigger: </p>
+    <div class="panel">
+        <p><b>{{ this.flowObject.Name }}</b></p>
+        <p>{{ this.flowObject.Description }}</p>
+    </div>
+    <div class="flow-list"> <!-- create flow list for each trigger in flow  -->
+        <div class="arrow-down"></div>
+        <div class="flow-block">
+
+            <p><b>Trigger: </b></p>
             <div class="card" (click)="configureTrigger(flowObject.Trigger)">
                 <p>Name: {{flowObject.Trigger.Name}}</p>
                 <p>Description: {{flowObject.Trigger.Description}}</p>
@@ -11,30 +15,32 @@
                 <p>Input: {{flowObject.Trigger.Input}}</p>
                 <p>Output: {{flowObject.Trigger.Output}}</p>
             </div>
-        <p>Functions: </p>
-        <ul>
-            <li *ngFor="let function of flowObject.Functions">
-                <div class="card" (click)="configureFunction(function)">
-                    <p>Name: {{function.Name}}</p>
-                    <p>Description: {{function.Description}}</p>
-                    <p>Type: {{function.Type}}</p>
-                    <p>Input: {{function.Input}}</p>
-                    <p>Output: {{function.Output}}</p>
-                </div>
-            </li>
-        </ul>
-        <button (click)="createExecutable()">
-            Create Executable
-        </button>
-        <p *ngIf="executableCreated">Path For {{flowObject.Name}}.exe ==> <br>{{executableCreated}}</p>
-        <mat-spinner [diameter]="50" *ngIf="executableLoading"></mat-spinner>
+            <div class="arrow-down"></div>
+            <p><b>Functions: </b></p>
+            <ul>
+                <li *ngFor="let function of flowObject.Functions">
+                    <div class="card" (click)="configureFunction(function)">
+                        <p>Name: {{function.Name}}</p>
+                        <p>Description: {{function.Description}}</p>
+                        <p>Type: {{function.Type}}</p>
+                        <p>Input: {{function.Input}}</p>
+                        <p>Output: {{function.Output}}</p>
+                    </div>
+                    <!-- <div *ngIf="flowObject.functions[flowObject.Functions.length - 1].Name !== function.Name" class="arrow-down"></div> -->
+                </li>
+            </ul>
+            <button (click)="createExecutable()">
+                Create Executable
+            </button>
+            <p *ngIf="executableCreated">Path For {{flowObject.Name}}.exe ==> <br>{{executableCreated}}</p>
+            <mat-spinner [diameter]="50" *ngIf="executableLoading"></mat-spinner>
+        </div>
     </div>
     <div class="configure-function" *ngIf="selectedFunction">
         <app-configure-function [flowFunction]="selectedFunction"></app-configure-function>
     </div>
     <div class="configure-trigger" *ngIf="selectedTrigger">
-        <app-configure-trigger [flowTrigger]="selectedTrigger" 
-            (saveTrigger)="handleUpdatedTrigger($event)">
+        <app-configure-trigger [flowTrigger]="selectedTrigger" (saveTrigger)="handleUpdatedTrigger($event)">
         </app-configure-trigger>
     </div>
 </div>
