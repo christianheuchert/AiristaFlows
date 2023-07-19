@@ -1,16 +1,5 @@
 @import '~@angular/material/prebuilt-themes/indigo-pink.css'; // need this for spinner to show up
 
-.flow-block {
-    display: flex;
-    flex-direction: column;
-    margin: 1em;
-    font-size: small;
-    border-radius: 25px;
-    border: 2px solid #1565c0;
-    padding: 10px;
-    max-width: 300px;
-}
-
 .shell {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     display: flex;
@@ -18,17 +7,75 @@
     align-items: center;
 }
 
-ul {
-    list-style-type: none;
-    list-style-position: inside;
-    margin: 0;
-    padding: 0;
+.flow-header {
+    color: black;
+    text-align: center;
+    background-color: white;
+    width: 100%;
+    height: 2.5em;
+    border-radius: 3px;
+    padding: 1em;
+    margin-bottom: 2em;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4); /* Add this line for the shadow effect */
 }
 
-.card {
-    border-radius: 25px;
-    border: 2px solid #e6e6e6;
-    padding: 5px;
+.trigger-row{
+    display: flex;
+    width: 70%;
+    justify-content: center;
+}
+.triggers{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.trigger{
+    cursor: pointer;
+    position: relative;
+    background-color: #1565c0;   
+    border-radius: 3px;
+    padding: .5em;
+    margin: .1em;
+    font-size: small;
+    text-align: center;
+    color: white;
+}
+.trigger:hover {
+    color: #2c3a41;
+    background-color: #e6e6e6;
+    left: .1em;
+}
+
+.flow-list{
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    justify-content: center;
+    align-items: center;
+}
+.function{
+    cursor: pointer;
+    position: relative;
+    border: 2px solid #1565c0;
+    border-radius: 3px;
+    padding: .5em;
+    margin: .1em;
+    font-size: small;
+    text-align: center;
+}
+.function:hover {
+    color: #2c3a41;
+    background-color: #e6e6e6;
+    left: .1em;
+}
+
+/* name and description styles */
+.name{
+    font-weight: bold;
+}
+.description{
+    font-weight: 300;
 }
 
 p {
@@ -48,52 +95,24 @@ button {
     text-align: center;
     color: white;
 }
-
 button:hover {
     color: #2c3a41;
     background-color: #e6e6e6;
     left: .1em;
 }
-
 button.selected {
     background-color: #1565c0;
     color: white;
 }
 
-.panel {
-    z-index: 1;
-    color: white;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: #1565c0;
-    border: 1px solid #787878;
-    width: 75%;
-    margin: 1em;
-    height: 2.5rem;
-    border-radius: 1%;
-    padding: 1rem;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Add this line for the shadow effect */
-
-  }
-
-  .flow-list {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .arrow-down {
-    // display: flex;
-    // flex-direction: column;
-    // align-items: center;
-    width: 0;
-    height: 0;
-    border-left: 10px solid transparent;
-    border-right: 10px solid transparent;
-    border-top: 10px solid rgb(25, 123, 129);
-    margin:1rem;
-  }
+.arrow-down {
+justify-content: center;
+align-items: center;
+width: 0;
+height: 0;
+border-left: 10px solid transparent;
+border-right: 10px solid transparent;
+border-top: 10px solid rgb(25, 123, 129);
+margin:1rem;
+}
 
