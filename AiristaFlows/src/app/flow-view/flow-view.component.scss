@@ -29,6 +29,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    width: 15em;
 }
 .trigger{
     cursor: pointer;
@@ -40,6 +41,7 @@
     font-size: small;
     text-align: center;
     color: white;
+    width: 16em;
 }
 .trigger:hover {
     color: #2c3a41;
@@ -47,12 +49,19 @@
     left: .1em;
 }
 
-.flow-list{
+.function-list{
     display: flex;
     flex-direction: column;
     width: 70%;
     justify-content: center;
     align-items: center;
+}
+.functions{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 15em;
 }
 .function{
     cursor: pointer;
@@ -63,6 +72,7 @@
     margin: .1em;
     font-size: small;
     text-align: center;
+    width: 15em;
 }
 .function:hover {
     color: #2c3a41;

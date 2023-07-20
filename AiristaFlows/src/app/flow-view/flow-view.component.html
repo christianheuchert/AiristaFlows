@@ -14,13 +14,13 @@
         </div>
     </div>
 
-    <div class="flow-list">
-        <div *ngFor="let function of flowObject.Functions">
+    <div class="function-list">
+        <div class="functions" *ngFor="let function of flowObject.Functions">
             <div class="function" (click)="configureFunction(function)">
                 <p class="name">{{function.Name}}</p>
                 <p class="description">{{function.Description}}</p>
             </div>
-
+            <div class="arrow-down"></div>
         </div>
     </div>
 
