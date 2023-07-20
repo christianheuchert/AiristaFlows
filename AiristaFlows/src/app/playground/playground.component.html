@@ -1,0 +1,25 @@
+<div class="shell">
+    <div class="flow-header">
+        <p>Flow Name</p>
+        <p>Flow Description</p>
+    </div>
+
+    <div class="trigger-row">
+        <div class="triggers" *ngFor="let trigger of flow.Triggers">
+            <div class="trigger">
+                <p class="name">{{trigger.Name}}</p>
+            </div>
+            <div class="arrow-down"></div>
+        </div>
+    </div>
+
+    <div class="function-list">
+        <div class="functions" *ngFor="let function of flow.Functions">
+            <div class="function">
+                <p class="name">{{function.Name}}</p>
+            </div>
+            <div class="arrow-down"></div>
+        </div>
+    </div>
+
+</div>

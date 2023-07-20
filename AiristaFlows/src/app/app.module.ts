@@ -20,6 +20,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import { CreateFlowComponent } from './create-flow/create-flow.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { PlaygroundComponent } from './playground/playground.component';
 
 
 @NgModule({
@@ -34,7 +35,8 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     MqttComponent,
     TriggerInputComponent,
     CreateFlowComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    PlaygroundComponent
   ],
   imports: [
     BrowserModule,
