@@ -4,22 +4,14 @@
         <p>Flow Description</p>
     </div>
 
-    <div class="trigger-row">
-        <div class="triggers" *ngFor="let trigger of flow.Triggers">
-            <div class="trigger">
-                <p class="name">{{trigger.Name}}</p>
-            </div>
-            <div class="arrow-down"></div>
+    <div class="flow-grid" [style.grid-template-columns]="getGridColumns()">
+        <div *ngFor="let trigger of flow.Triggers" 
+        class="trigger" [style.grid-column]="getTriggerWidth(trigger.Id)">
+            <p>{{trigger.Name}}</p>
+            <p>{{trigger.Id}}</p>
         </div>
     </div>
-
-    <div class="function-list">
-        <div class="functions" *ngFor="let function of flow.Functions">
-            <div class="function">
-                <p class="name">{{function.Name}}</p>
-            </div>
-            <div class="arrow-down"></div>
-        </div>
-    </div>
+    
 
 </div>
+
