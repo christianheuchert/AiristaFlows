@@ -1,14 +1,26 @@
 <div class="shell">
     <div class="flow-header">
-        <p>Flow Name</p>
-        <p>Flow Description</p>
+        <p class="name">Flow Name</p>
+        <p class="description">Flow Description</p>
     </div>
 
     <div class="flow-grid" [style.grid-template-columns]="getGridColumns()">
         <div *ngFor="let trigger of flow.Triggers" 
         class="trigger" [style.grid-column]="getTriggerWidth(trigger.Id)">
-            <p>{{trigger.Name}}</p>
-            <p>{{trigger.Id}}</p>
+            <p class="name">{{trigger.Name}}</p>
+            <p class="description">{{trigger.Id}}</p>
+        </div>
+        <div class="functions" *ngFor="let function of flow.Functions" 
+        [style.grid-column-start]="getFunctionColStart(function.Id)"
+        [style.grid-column-end]="getFunctionWidth(function.Id)"
+        [style.grid-row-start]="getFunctionRowStart(function.Id)"
+        >
+            <div class="arrow-down"></div>
+            <div class="function">
+                <p class="name">{{function.Name}}</p>
+                <p class="description">{{function.Id}}</p>
+            </div>
+            
         </div>
     </div>
     
