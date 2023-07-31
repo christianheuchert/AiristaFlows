@@ -30,18 +30,10 @@ export class PlaygroundComponent implements OnInit{
   ngOnInit(): void {
     this.tree = this.getTree()
     console.log("map of tree", this.tree)
-    console.log("depth: ", this.getTreeDepth(this.flow.Triggers[0].Id))
-    console.log("span: ", this.getTreeSpan(this.flow.Triggers[0].Id))
 
     this.treeGrid = this.calculateTreeGrid()
     console.log("treeGrid: ", this.treeGrid)
 
-    // const nestedDivs = this.htmlTree()
-    // console.log("html", nestedDivs)
-    // const flowHeaderDiv = document.querySelector(".flow-header");
-    // flowHeaderDiv?.appendChild(nestedDivs);
-
-    // console.log(this.getTriggerWidth(1))
   }
 
   // generates map of flow triggers/branches tree
@@ -63,22 +55,22 @@ export class PlaygroundComponent implements OnInit{
     return tree
   }
   // returns depth for given node
-  getTreeDepth(startNode:number): number {
-    let maxDepth = 1; 
-    var tree = this.tree
-    checkChildren(startNode)
-    return maxDepth;
-    // recursive helper function
-    function checkChildren(key:number){
-      const children = tree.get(key);
-      if (children){
-        maxDepth++
-        children.forEach((child:number) => {
-          checkChildren(child)
-        })
-      }
-    }
-  }
+  // getTreeDepth(startNode:number): number {
+  //   let maxDepth = 1; 
+  //   var tree = this.tree
+  //   checkChildren(startNode)
+  //   return maxDepth;
+  //   // recursive helper function
+  //   function checkChildren(key:number){
+  //     const children = tree.get(key);
+  //     if (children){
+  //       maxDepth++
+  //       children.forEach((child:number) => {
+  //         checkChildren(child)
+  //       })
+  //     }
+  //   }
+  // }
   getTreeSpan(startNode:number): number {
     let span = 0; 
     var tree = this.tree
@@ -166,55 +158,6 @@ export class PlaygroundComponent implements OnInit{
     if (node){return node.x + node.w +1}
     else{return 0}
   }
-
-  // htmlTree():HTMLElement{
-  //   var tree = this.tree
-  //   const rootDiv = document.createElement("div");
-  //   rootDiv.innerHTML = `
-  //   <div class="trigger">
-  //     <p>Id: ${this.flow.Triggers[0].Id}</p>
-  //     <p>Name: ${this.flow.Triggers[0].Name}</p>
-  //   </div>`
-  //   let currentDiv = rootDiv;
-
-  //   let depth = this.getTreeDepth(this.flow.Triggers[0].Id)
-  //   if (depth <= 0) {
-  //     throw new Error("Depth should be greater than 0.");
-  //   }
-
-  //   this.createChild(this.flow.Triggers[0].Id, currentDiv)
-    
-  //   return rootDiv;
-  // }
-  // createChild(key:number, currentDiv:any){
-  //   const children = this.tree.get(key);
-  //   if (children){
-  //     children.forEach((child:number) => {
-  //       const childDiv = document.createElement('div');
-  //       let func = this.flow.Functions.find((obj:any) => obj.Id == child)
-  //       childDiv.innerHTML = `
-  //       <div class="function">
-  //         <p>Id: ${func?.Id}</p>
-  //         <p>Name: ${func?.Name}</p>
-  //       </div>`
-  //       currentDiv.appendChild(childDiv);
-  //       currentDiv = childDiv;
-  //       this.createChild(child, currentDiv)
-  //     })
-  //   }
-  // }
-
-  // renderObject(object: Trigger | Func) {
-  //   const div = document.createElement('div');
-
-  //   div.innerHTML = `
-  //   <div class="function">
-  //     <p>Id: ${object.Id}</p>
-  //     <p>Name: ${object.Name}</p>
-  //   </div>`
-
-  //   document.body.appendChild(div);
-  // }
   
 
 }

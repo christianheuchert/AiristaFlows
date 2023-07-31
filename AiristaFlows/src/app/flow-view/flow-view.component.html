@@ -1,5 +1,29 @@
 <div class="shell">
     <div class="flow-header">
+        <p class="name">Flow Name</p>
+        <p class="description">Flow Description</p>
+    </div>
+
+    <div class="flow-grid" [style.grid-template-columns]="getGridColumns()">
+        <div *ngFor="let trigger of flowObject.Triggers" 
+        class="trigger" [style.grid-column]="getTriggerWidth(trigger.Id)">
+            <p class="name">{{trigger.Name}}</p>
+            <p class="description">{{trigger.Id}}</p>
+        </div>
+        <div class="functions" *ngFor="let function of flowObject.Functions" 
+        [style.grid-column-start]="getFunctionColStart(function.Id)"
+        [style.grid-column-end]="getFunctionWidth(function.Id)"
+        [style.grid-row-start]="getFunctionRowStart(function.Id)"
+        >
+            <div class="arrow-down"></div>
+            <div class="function">
+                <p class="name">{{function.Name}}</p>
+                <p class="description">{{function.Id}}</p>
+            </div>
+            
+        </div>
+    </div>
+    <!-- <div class="flow-header">
         <p><b>{{ this.flowObject.Name }}</b></p>
         <p>{{ this.flowObject.Description }}</p>
     </div>
@@ -22,7 +46,7 @@
             </div>
             <div class="arrow-down"></div>
         </div>
-    </div>
+    </div> -->
 
     <button (click)="createExecutable()">
         Create Executable

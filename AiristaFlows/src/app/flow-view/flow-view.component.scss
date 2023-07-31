@@ -19,18 +19,13 @@
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4); /* Add this line for the shadow effect */
 }
 
-.trigger-row{
-    display: flex;
-    width: 70%;
-    justify-content: center;
+.flow-grid{
+    display: grid;
+    width: 60%;
+    gap: 10px;
+    row-gap: 0px;
 }
-.triggers{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 15em;
-}
+
 .trigger{
     cursor: pointer;
     position: relative;
@@ -41,7 +36,6 @@
     font-size: small;
     text-align: center;
     color: white;
-    width: 16em;
 }
 .trigger:hover {
     color: #2c3a41;
@@ -49,35 +43,41 @@
     left: .1em;
 }
 
-.function-list{
-    display: flex;
-    flex-direction: column;
-    width: 70%;
-    justify-content: center;
-    align-items: center;
-}
 .functions{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 15em;
+    margin: 0 .2em 0 .2em;
 }
 .function{
     cursor: pointer;
     position: relative;
-    border: 2px solid #1565c0;
+    border: 1px solid #1565c0;
+    background-color: #dcf0fa;
     border-radius: 3px;
     padding: .5em;
     margin: .1em;
     font-size: small;
     text-align: center;
-    width: 15em;
+    width: 95%;
 }
 .function:hover {
     color: #2c3a41;
     background-color: #e6e6e6;
     left: .1em;
+}
+
+.arrow-down {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 10px solid #2c3a41;
+    margin:.5em;
 }
 
 /* name and description styles */
@@ -114,15 +114,3 @@ button.selected {
     background-color: #1565c0;
     color: white;
 }
-
-.arrow-down {
-justify-content: center;
-align-items: center;
-width: 0;
-height: 0;
-border-left: 10px solid transparent;
-border-right: 10px solid transparent;
-border-top: 10px solid rgb(25, 123, 129);
-margin:1rem;
-}
-
