@@ -127,9 +127,6 @@ export class PlaygroundComponent implements OnInit{
     return gridArr
   }
 
-
-
-
   // set width of flow display grid
   getGridColumns():string{
     let treeWidth = 0 // add width of all root nodes ie triggers
@@ -158,7 +155,6 @@ export class PlaygroundComponent implements OnInit{
     if (node){return node.x + node.w +1}
     else{return 0}
   }
-  
 
 }
 

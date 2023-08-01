@@ -4,6 +4,7 @@
 export const TRIGGERSFUNCTIONS:TriggersFunctions = { 
   // flow object
   flow: {
+    Id: "0",
     Name: "Name",
     Description: "Description",
     Triggers: [] as string[],
@@ -11,10 +12,11 @@ export const TRIGGERSFUNCTIONS:TriggersFunctions = {
   },
   // mqtt trigger
   mqtt: {
+    Id: "0",
     Name: "Name",
     Description: "Description",
     Type: "mqtt",
-    Input: "Input",
+    Input: "0",
     Output: "Output",
     Settings: {
       Protocol: "ws",
@@ -27,10 +29,11 @@ export const TRIGGERSFUNCTIONS:TriggersFunctions = {
   },
   // consoleLog function
   consoleLog: {
+    Id: "0",
     Name: "Name",
     Description: "Description",
     Type: "consoleLog",
-    Input: "Input",
+    Input: "0",
     Output: "Output",
   }
 }

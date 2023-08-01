@@ -28,7 +28,7 @@ export class CreateFlowComponent implements OnInit{
 
   ngOnInit(): void {
     this.flowService.getConfig().subscribe((data: any) => {
-      //console.log("config data", data)
+      console.log("config data", data)
       this.config = data;
       this.triggerOptions = data.Triggers
       this.functionOptions = data.Functions
@@ -54,16 +54,32 @@ export class CreateFlowComponent implements OnInit{
     }
 
     onSubmit(){
-      console.warn(this.createFlowForm.value);
+      // console.warn(this.createFlowForm.value);
       var newFlow = TRIGGERSFUNCTIONS['flow'];
       newFlow.Name = this.createFlowForm.value.Name;
       newFlow.Description = this.createFlowForm.value.Description;
-      for (var trigger of this.triggersToAdd) {
+      
+      for (var trigger of this.triggersToAdd) { // triggers added to flow
         newFlow.Triggers.push(TRIGGERSFUNCTIONS[trigger])
       }
-      for (var functionx of this.functionsToAdd) {
+      for (var functionx of this.functionsToAdd) { // fucntions added to flow
         newFlow.Functions.push(TRIGGERSFUNCTIONS[functionx])
       }
+      
+      // Update Id's 
+      var currentId = +this.config.CurrentId
+      newFlow.Id = ""+ (currentId + 1)
+      currentId++
+      for (var trig of newFlow.Triggers){
+        trig.Id = ""+ (currentId + 1)
+        currentId++
+      }
+      for (var func of newFlow.Functions){
+        func.Id = ""+ (currentId + 1)
+        currentId++
+      }
+
+
       console.log("crazy new flow", newFlow)
     }
 
